@@ -33,6 +33,11 @@ D:\advanced-tutorials-hg2>lua scene_coroutine.lua
 
 Alternatively, you can open the tutorial folder using [Visual Studio Code](https://code.visualstudio.com/) and use the provided debug targets to run the tutorials.
 
+### To run FFMPEG tutorial
+
+1. Follow the main run directives.
+2. Move [those](screenshots/dlls_to_move.png) DLLs to your python root.
+
 **If you want to know more about HARFANG**, please visit the [official website](https://www.harfang3d.com).
 
 You can also visit the [Harfang3D-Tutorials](https://github.com/harfang3d/tutorials-hg2) if you want to see more.
