@@ -8,7 +8,7 @@ hg.WindowSystemInit()
 res_x, res_y = 1280, 720
 
 win = hg.NewWindow("Shadertoy to Harfang tutorial", res_x, res_y, 32)
-hg.RenderInit(win, hg.RT_Direct3D12) #You can add RT_Direct3D11 or RT_DirectD3D12 or RT_OpenGL to specify render API
+hg.RenderInit(win, hg.RT_Direct3D11) #You can add RT_Direct3D11 or RT_DirectD3D12 or RT_OpenGL to specify render API
 hg.RenderReset(res_x, res_y, hg.RF_MSAA4X | hg.RF_MaxAnisotropy)
 
 quad_uniform_set_texture_list = hg.UniformSetTextureList()
@@ -24,7 +24,7 @@ plane_mdl_ui = hg.CreatePlaneModel(vtx_layout, 1, 1, 1, 1)
 texture, texture_info = hg.LoadTextureFromAssets("textures/noise.png", hg.TF_WClamp)
 shader_Dvd = hg.LoadProgramFromAssets('shaders/dvdBounce')
 
-shader_dacingCubes = hg.LoadProgramFromAssets('shaders/shadertoyCubesAreDancing')
+shader_dacingCubes = hg.LoadProgramFromAssets('shaders/shadertoyDust')
 
 shader_text = hg.LoadProgramFromAssets('shaders/texture')
 
