@@ -45,6 +45,7 @@ while not hg.ReadKeyboard().Key(hg.K_Escape) and hg.IsWindowOpen(win):
 
     val_uniforms = [hg.MakeUniformSetValue("iTime", hg.Vec4(hg.time_to_sec_f(hg.GetClock()), 0.0, 0.0, 0.0)),
                     hg.MakeUniformSetValue("iResolution", hg.Vec4(res_x, res_y, 0.0, 0.0)),
+                    hg.MakeUniformSetValue("iMouse", hg.Vec4(0.0, 0.0, 0.0, 0.0)),
                     hg.MakeUniformSetValue("iChannelResolution", hg.Vec4(texture_info.width, texture_info.height, 0.0, 0.0))]
 
     text_val_uniforms = [hg.MakeUniformSetValue("color", hg.Vec4(1.0, 1.0 , 1.0, 1.0))]
@@ -72,7 +73,7 @@ while not hg.ReadKeyboard().Key(hg.K_Escape) and hg.IsWindowOpen(win):
     hg.DrawText(view_id, font, 'tdhooper - DVD Bounce', font_program, 'u_tex', 0, hg.Mat4.Identity,
                 hg.Vec3(140, res_y - 280, 0), hg.DTHA_Left, hg.DTVA_Bottom, text_uniform_values, [], text_render_state)
 
-    hg.DrawText(view_id, font, 'Flopine - Cubes are dancing', font_program, 'u_tex', 0, hg.Mat4.Identity,
+    hg.DrawText(view_id, font, 'Leon Denise - Cavernic', font_program, 'u_tex', 0, hg.Mat4.Identity,
                 hg.Vec3(750, res_y - 280, 0), hg.DTHA_Left, hg.DTVA_Bottom, text_uniform_values, [], text_render_state)
 
     hg.DrawText(view_id, font, 'SHADERTOY TO HARFANG PORTING', font_program, 'u_tex', 0, hg.Mat4.Identity,

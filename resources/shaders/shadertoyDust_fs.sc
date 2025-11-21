@@ -2,8 +2,9 @@ $input v_texcoord0
 
 #include <bgfx_shader.sh>
 
-uniform vec4 u_resolution; 
-uniform vec4 u_mouse;      
+uniform vec4 iResolution;
+uniform vec4 iMouse;
+uniform vec4 iTime;
 
 float material, total;
 
@@ -73,7 +74,7 @@ float noise3(vec3 p)
     float a = 0.5;
     for (float i = 0.0; i < 5.0; i += 1.0)
     {
-        p.y += result * 0.5 + u_resolution.z * 0.05;
+        p.y += result * 0.5 + iTime.x * 0.05;
         result += abs(gyroid(p/a)*a);
         a /= 2.0;
     }
@@ -99,7 +100,7 @@ float map(vec3 p)
     
     p.x += 0.7;
     
-    p.z -= u_resolution.z * 0.1;
+    p.z -= iTime.x * 0.1;
     
     vec3 q = p;
     
@@ -166,19 +167,19 @@ void main()
 {
     vec3 color = vec3(0.0, 0.0, 0.0);
     
-    vec2 fragCoord = v_texcoord0 * u_resolution.xy;
-    vec2 uv = fragCoord / u_resolution.xy;
-    vec2 p = (2.0 * fragCoord - u_resolution.xy) / u_resolution.y;
+    vec2 fragCoord = v_texcoord0 * iResolution.xy;
+    vec2 uv = fragCoord / iResolution.xy;
+    vec2 p = (2.0 * fragCoord - iResolution.xy) / iResolution.y;
     vec3 pos = vec3(0.0, 0.0, 0.0);
     vec3 ray = normalize(vec3(p, -1.0));
     vec3 rng = hash(uvec3(fragCoord, 0.0));
     
-    bool clicked = u_mouse.x > 0.0;
-    bool clicking = u_mouse.z > 0.0;
+    bool clicked = iMouse.x > 0.0;
+    bool clicking = iMouse.z > 0.0;
     if (clicked)
     {
-        vec2 mouse = u_mouse.xy - abs(u_mouse.zw) + u_resolution.xy / 2.0;
-        vec2 angle = (2.0 * mouse - u_resolution.xy) / u_resolution.y;
+        vec2 mouse = iMouse.xy - abs(iMouse.zw) + iResolution.xy / 2.0;
+        vec2 angle = (2.0 * mouse - iResolution.xy) / iResolution.y;
         ray.yz = mul(rot(angle.y), ray.yz);
         ray.xz = mul(rot(angle.x), ray.xz);
     }
